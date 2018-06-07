@@ -4,7 +4,7 @@
 #'
 #' The function \code{print.selectEM} is the print method for the class{selectEM}, which is the output
 #' of the function \code{select}. It prints a data frame which contains the following information of each
-#' candidate mixture models: the number of components, whether the variacne is the same for each component
+#' candidate mixture models: the number of components, whether the variance is the same for each component
 #' in a mixture model (only for normal), the value of BIC, and an indicator of the best model.
 #'
 #' @param x an object of class \code{selectEM}

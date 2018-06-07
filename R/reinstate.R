@@ -1,6 +1,6 @@
 #' Reinstate the Binned Data to the Raw Data
 #'
-#' This function creates a numeric vector approxmimating the raw data from binned data
+#' This function creates a numeric vector approximating the raw data from binned data
 #'
 #' The function \code{reinstate} creates a numeric vector by generating \eqn{n_i}
 #' random data from the Uniform distribution \eqn{U(a_i, b_i)} for \eqn{i = 1, \dots, r}

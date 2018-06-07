@@ -7,7 +7,7 @@ using namespace Rcpp;
 
 // rcmean
 NumericVector rcmean(NumericMatrix x, int margin);
-RcppExport SEXP mixR_rcmean(SEXP xSEXP, SEXP marginSEXP) {
+RcppExport SEXP _mixR_rcmean(SEXP xSEXP, SEXP marginSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -19,7 +19,7 @@ END_RCPP
 }
 // rcsum
 NumericVector rcsum(NumericMatrix x, int margin);
-RcppExport SEXP mixR_rcsum(SEXP xSEXP, SEXP marginSEXP) {
+RcppExport SEXP _mixR_rcsum(SEXP xSEXP, SEXP marginSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -31,7 +31,7 @@ END_RCPP
 }
 // expZ_norm_C
 NumericMatrix expZ_norm_C(NumericVector x, NumericVector pi, NumericVector mu, NumericVector sd);
-RcppExport SEXP mixR_expZ_norm_C(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_expZ_norm_C(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -45,7 +45,7 @@ END_RCPP
 }
 // loglik_norm_C
 double loglik_norm_C(NumericVector x, NumericVector pi, NumericVector mu, NumericVector sd);
-RcppExport SEXP mixR_loglik_norm_C(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_loglik_norm_C(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -59,7 +59,7 @@ END_RCPP
 }
 // norm_uv
 List norm_uv(NumericVector x, NumericVector pi, NumericVector mu, NumericVector sd, int max_iter, double tol);
-RcppExport SEXP mixR_norm_uv(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_norm_uv(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -75,7 +75,7 @@ END_RCPP
 }
 // norm_ev
 List norm_ev(NumericVector x, NumericVector pi, NumericVector mu, NumericVector sd, int max_iter, double tol);
-RcppExport SEXP mixR_norm_ev(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_norm_ev(SEXP xSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -91,7 +91,7 @@ END_RCPP
 }
 // enorm_trunc
 double enorm_trunc(double a, double b, double mu, double sd);
-RcppExport SEXP mixR_enorm_trunc(SEXP aSEXP, SEXP bSEXP, SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_enorm_trunc(SEXP aSEXP, SEXP bSEXP, SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -105,7 +105,7 @@ END_RCPP
 }
 // exnorm
 NumericMatrix exnorm(NumericMatrix data, NumericVector mu, NumericVector sd);
-RcppExport SEXP mixR_exnorm(SEXP dataSEXP, SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_exnorm(SEXP dataSEXP, SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -118,7 +118,7 @@ END_RCPP
 }
 // txnorm
 NumericMatrix txnorm(NumericVector pi, NumericVector mu, NumericVector sd, NumericMatrix ex);
-RcppExport SEXP mixR_txnorm(SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP exSEXP) {
+RcppExport SEXP _mixR_txnorm(SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP exSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -132,7 +132,7 @@ END_RCPP
 }
 // loglik_norm_gC
 double loglik_norm_gC(NumericMatrix data, NumericVector pi, NumericVector mu, NumericVector sd);
-RcppExport SEXP mixR_loglik_norm_gC(SEXP dataSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_loglik_norm_gC(SEXP dataSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -146,7 +146,7 @@ END_RCPP
 }
 // norm_uv_g
 List norm_uv_g(NumericMatrix data, NumericVector pi, NumericVector mu, NumericVector sd, int max_iter, double tol);
-RcppExport SEXP mixR_norm_uv_g(SEXP dataSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_norm_uv_g(SEXP dataSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -162,7 +162,7 @@ END_RCPP
 }
 // norm_ev_g
 List norm_ev_g(NumericMatrix data, NumericVector pi, NumericVector mu, NumericVector sd, int max_iter, double tol);
-RcppExport SEXP mixR_norm_ev_g(SEXP dataSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_norm_ev_g(SEXP dataSEXP, SEXP piSEXP, SEXP muSEXP, SEXP sdSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -178,7 +178,7 @@ END_RCPP
 }
 // expZ_gamma_C
 NumericMatrix expZ_gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, NumericVector lambda);
-RcppExport SEXP mixR_expZ_gamma_C(SEXP xSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_expZ_gamma_C(SEXP xSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -192,7 +192,7 @@ END_RCPP
 }
 // loglik_gamma_C
 double loglik_gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, NumericVector lambda);
-RcppExport SEXP mixR_loglik_gamma_C(SEXP xSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_loglik_gamma_C(SEXP xSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -206,7 +206,7 @@ END_RCPP
 }
 // gamma_bisection_C
 NumericVector gamma_bisection_C(NumericVector n, NumericVector ex, NumericVector tx, double tol, int max_iter, double xleft, double xright);
-RcppExport SEXP mixR_gamma_bisection_C(SEXP nSEXP, SEXP exSEXP, SEXP txSEXP, SEXP tolSEXP, SEXP max_iterSEXP, SEXP xleftSEXP, SEXP xrightSEXP) {
+RcppExport SEXP _mixR_gamma_bisection_C(SEXP nSEXP, SEXP exSEXP, SEXP txSEXP, SEXP tolSEXP, SEXP max_iterSEXP, SEXP xleftSEXP, SEXP xrightSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -223,7 +223,7 @@ END_RCPP
 }
 // to_mu_sd_gamma_C
 List to_mu_sd_gamma_C(NumericVector alpha, NumericVector lambda);
-RcppExport SEXP mixR_to_mu_sd_gamma_C(SEXP alphaSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_to_mu_sd_gamma_C(SEXP alphaSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -235,7 +235,7 @@ END_RCPP
 }
 // to_alpha_lambda_gamma_C
 List to_alpha_lambda_gamma_C(NumericVector mu, NumericVector sd);
-RcppExport SEXP mixR_to_alpha_lambda_gamma_C(SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_to_alpha_lambda_gamma_C(SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -247,7 +247,7 @@ END_RCPP
 }
 // gamma_C
 List gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, NumericVector lambda, String method, int max_iter, double tol);
-RcppExport SEXP mixR_gamma_C(SEXP xSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_gamma_C(SEXP xSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -264,7 +264,7 @@ END_RCPP
 }
 // egamma_trunc
 double egamma_trunc(double a, double b, double alpha, double lambda);
-RcppExport SEXP mixR_egamma_trunc(SEXP aSEXP, SEXP bSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_egamma_trunc(SEXP aSEXP, SEXP bSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -278,7 +278,7 @@ END_RCPP
 }
 // EXgamma_C
 NumericMatrix EXgamma_C(NumericMatrix data, NumericVector alpha, NumericVector lambda);
-RcppExport SEXP mixR_EXgamma_C(SEXP dataSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_EXgamma_C(SEXP dataSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -291,7 +291,7 @@ END_RCPP
 }
 // TXgamma_C
 NumericMatrix TXgamma_C(NumericVector pi, NumericVector alpha, NumericVector lambda, NumericMatrix ex);
-RcppExport SEXP mixR_TXgamma_C(SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP, SEXP exSEXP) {
+RcppExport SEXP _mixR_TXgamma_C(SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP, SEXP exSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -305,7 +305,7 @@ END_RCPP
 }
 // loglik_gamma_g_C
 double loglik_gamma_g_C(NumericMatrix data, NumericVector pi, NumericVector alpha, NumericVector lambda);
-RcppExport SEXP mixR_loglik_gamma_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_loglik_gamma_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -319,7 +319,7 @@ END_RCPP
 }
 // gamma_g_C
 List gamma_g_C(NumericMatrix data, NumericVector pi, NumericVector alpha, NumericVector lambda, String method, int max_iter, double tol);
-RcppExport SEXP mixR_gamma_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_gamma_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP alphaSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -336,7 +336,7 @@ END_RCPP
 }
 // expZ_weib_C
 NumericMatrix expZ_weib_C(NumericVector x, NumericVector pi, NumericVector k, NumericVector lambda);
-RcppExport SEXP mixR_expZ_weib_C(SEXP xSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_expZ_weib_C(SEXP xSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -350,7 +350,7 @@ END_RCPP
 }
 // loglik_weib_C
 double loglik_weib_C(NumericVector x, NumericVector pi, NumericVector k, NumericVector lambda);
-RcppExport SEXP mixR_loglik_weib_C(SEXP xSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_loglik_weib_C(SEXP xSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -364,7 +364,7 @@ END_RCPP
 }
 // g_weib
 double g_weib(double r, NumericVector n, NumericVector ex, NumericVector tx);
-RcppExport SEXP mixR_g_weib(SEXP rSEXP, SEXP nSEXP, SEXP exSEXP, SEXP txSEXP) {
+RcppExport SEXP _mixR_g_weib(SEXP rSEXP, SEXP nSEXP, SEXP exSEXP, SEXP txSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -378,7 +378,7 @@ END_RCPP
 }
 // newton_weib_C
 NumericVector newton_weib_C(NumericVector n, NumericVector ex, NumericVector tx, double r, int max_iter);
-RcppExport SEXP mixR_newton_weib_C(SEXP nSEXP, SEXP exSEXP, SEXP txSEXP, SEXP rSEXP, SEXP max_iterSEXP) {
+RcppExport SEXP _mixR_newton_weib_C(SEXP nSEXP, SEXP exSEXP, SEXP txSEXP, SEXP rSEXP, SEXP max_iterSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -393,7 +393,7 @@ END_RCPP
 }
 // weib_bisection_C
 NumericVector weib_bisection_C(NumericVector n, NumericVector ex, NumericVector tx, double tol, int max_iter, double xleft, double xright);
-RcppExport SEXP mixR_weib_bisection_C(SEXP nSEXP, SEXP exSEXP, SEXP txSEXP, SEXP tolSEXP, SEXP max_iterSEXP, SEXP xleftSEXP, SEXP xrightSEXP) {
+RcppExport SEXP _mixR_weib_bisection_C(SEXP nSEXP, SEXP exSEXP, SEXP txSEXP, SEXP tolSEXP, SEXP max_iterSEXP, SEXP xleftSEXP, SEXP xrightSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -410,7 +410,7 @@ END_RCPP
 }
 // to_mu_sd_weib_C
 List to_mu_sd_weib_C(NumericVector k, NumericVector lambda);
-RcppExport SEXP mixR_to_mu_sd_weib_C(SEXP kSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_to_mu_sd_weib_C(SEXP kSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -422,7 +422,7 @@ END_RCPP
 }
 // to_k_lambda_weib_C
 List to_k_lambda_weib_C(NumericVector mu, NumericVector sd);
-RcppExport SEXP mixR_to_k_lambda_weib_C(SEXP muSEXP, SEXP sdSEXP) {
+RcppExport SEXP _mixR_to_k_lambda_weib_C(SEXP muSEXP, SEXP sdSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -434,7 +434,7 @@ END_RCPP
 }
 // weib_C
 List weib_C(NumericVector x, NumericVector pi, NumericVector k, NumericVector lambda, String method, int max_iter, double tol);
-RcppExport SEXP mixR_weib_C(SEXP xSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_weib_C(SEXP xSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -451,7 +451,7 @@ END_RCPP
 }
 // eweib_trunc
 double eweib_trunc(double a, double b, double k, double lambda);
-RcppExport SEXP mixR_eweib_trunc(SEXP aSEXP, SEXP bSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_eweib_trunc(SEXP aSEXP, SEXP bSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -465,7 +465,7 @@ END_RCPP
 }
 // EXweib_C
 NumericMatrix EXweib_C(NumericMatrix data, NumericVector k, NumericVector lambda);
-RcppExport SEXP mixR_EXweib_C(SEXP dataSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_EXweib_C(SEXP dataSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -478,7 +478,7 @@ END_RCPP
 }
 // TXweib_C
 NumericMatrix TXweib_C(NumericVector pi, NumericVector k, NumericVector lambda, NumericMatrix ex);
-RcppExport SEXP mixR_TXweib_C(SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP, SEXP exSEXP) {
+RcppExport SEXP _mixR_TXweib_C(SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP, SEXP exSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -492,7 +492,7 @@ END_RCPP
 }
 // loglik_weib_g_C
 double loglik_weib_g_C(NumericMatrix data, NumericVector pi, NumericVector k, NumericVector lambda);
-RcppExport SEXP mixR_loglik_weib_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
+RcppExport SEXP _mixR_loglik_weib_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -506,7 +506,7 @@ END_RCPP
 }
 // weib_g_C
 List weib_g_C(NumericMatrix data, NumericVector pi, NumericVector k, NumericVector lambda, String method, int max_iter, double tol);
-RcppExport SEXP mixR_weib_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_weib_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP kSEXP, SEXP lambdaSEXP, SEXP methodSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -523,7 +523,7 @@ END_RCPP
 }
 // expZ_lnorm_C
 NumericMatrix expZ_lnorm_C(NumericVector x, NumericVector pi, NumericVector mulog, NumericVector sdlog);
-RcppExport SEXP mixR_expZ_lnorm_C(SEXP xSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
+RcppExport SEXP _mixR_expZ_lnorm_C(SEXP xSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -537,7 +537,7 @@ END_RCPP
 }
 // loglik_lnorm_C
 double loglik_lnorm_C(NumericVector x, NumericVector pi, NumericVector mulog, NumericVector sdlog);
-RcppExport SEXP mixR_loglik_lnorm_C(SEXP xSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
+RcppExport SEXP _mixR_loglik_lnorm_C(SEXP xSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -551,7 +551,7 @@ END_RCPP
 }
 // lnorm_C
 List lnorm_C(NumericVector x, NumericVector pi, NumericVector mulog, NumericVector sdlog, int max_iter, double tol);
-RcppExport SEXP mixR_lnorm_C(SEXP xSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_lnorm_C(SEXP xSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -567,7 +567,7 @@ END_RCPP
 }
 // elnorm_trunc
 double elnorm_trunc(double a, double b, double mulog, double sdlog);
-RcppExport SEXP mixR_elnorm_trunc(SEXP aSEXP, SEXP bSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
+RcppExport SEXP _mixR_elnorm_trunc(SEXP aSEXP, SEXP bSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -581,7 +581,7 @@ END_RCPP
 }
 // EXlnorm_C
 NumericMatrix EXlnorm_C(NumericMatrix data, NumericVector mulog, NumericVector sdlog);
-RcppExport SEXP mixR_EXlnorm_C(SEXP dataSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
+RcppExport SEXP _mixR_EXlnorm_C(SEXP dataSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -594,7 +594,7 @@ END_RCPP
 }
 // TXlnorm_C
 NumericMatrix TXlnorm_C(NumericVector pi, NumericVector mulog, NumericVector sdlog, NumericMatrix ex);
-RcppExport SEXP mixR_TXlnorm_C(SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP, SEXP exSEXP) {
+RcppExport SEXP _mixR_TXlnorm_C(SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP, SEXP exSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -608,7 +608,7 @@ END_RCPP
 }
 // loglik_lnorm_g_C
 double loglik_lnorm_g_C(NumericMatrix data, NumericVector pi, NumericVector mulog, NumericVector sdlog);
-RcppExport SEXP mixR_loglik_lnorm_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
+RcppExport SEXP _mixR_loglik_lnorm_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -622,7 +622,7 @@ END_RCPP
 }
 // lnorm_g_C
 List lnorm_g_C(NumericMatrix data, NumericVector pi, NumericVector mulog, NumericVector sdlog, int max_iter, double tol);
-RcppExport SEXP mixR_lnorm_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
+RcppExport SEXP _mixR_lnorm_g_C(SEXP dataSEXP, SEXP piSEXP, SEXP mulogSEXP, SEXP sdlogSEXP, SEXP max_iterSEXP, SEXP tolSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -635,4 +635,57 @@ BEGIN_RCPP
     rcpp_result_gen = Rcpp::wrap(lnorm_g_C(data, pi, mulog, sdlog, max_iter, tol));
     return rcpp_result_gen;
 END_RCPP
+}
+
+static const R_CallMethodDef CallEntries[] = {
+    {"_mixR_rcmean", (DL_FUNC) &_mixR_rcmean, 2},
+    {"_mixR_rcsum", (DL_FUNC) &_mixR_rcsum, 2},
+    {"_mixR_expZ_norm_C", (DL_FUNC) &_mixR_expZ_norm_C, 4},
+    {"_mixR_loglik_norm_C", (DL_FUNC) &_mixR_loglik_norm_C, 4},
+    {"_mixR_norm_uv", (DL_FUNC) &_mixR_norm_uv, 6},
+    {"_mixR_norm_ev", (DL_FUNC) &_mixR_norm_ev, 6},
+    {"_mixR_enorm_trunc", (DL_FUNC) &_mixR_enorm_trunc, 4},
+    {"_mixR_exnorm", (DL_FUNC) &_mixR_exnorm, 3},
+    {"_mixR_txnorm", (DL_FUNC) &_mixR_txnorm, 4},
+    {"_mixR_loglik_norm_gC", (DL_FUNC) &_mixR_loglik_norm_gC, 4},
+    {"_mixR_norm_uv_g", (DL_FUNC) &_mixR_norm_uv_g, 6},
+    {"_mixR_norm_ev_g", (DL_FUNC) &_mixR_norm_ev_g, 6},
+    {"_mixR_expZ_gamma_C", (DL_FUNC) &_mixR_expZ_gamma_C, 4},
+    {"_mixR_loglik_gamma_C", (DL_FUNC) &_mixR_loglik_gamma_C, 4},
+    {"_mixR_gamma_bisection_C", (DL_FUNC) &_mixR_gamma_bisection_C, 7},
+    {"_mixR_to_mu_sd_gamma_C", (DL_FUNC) &_mixR_to_mu_sd_gamma_C, 2},
+    {"_mixR_to_alpha_lambda_gamma_C", (DL_FUNC) &_mixR_to_alpha_lambda_gamma_C, 2},
+    {"_mixR_gamma_C", (DL_FUNC) &_mixR_gamma_C, 7},
+    {"_mixR_egamma_trunc", (DL_FUNC) &_mixR_egamma_trunc, 4},
+    {"_mixR_EXgamma_C", (DL_FUNC) &_mixR_EXgamma_C, 3},
+    {"_mixR_TXgamma_C", (DL_FUNC) &_mixR_TXgamma_C, 4},
+    {"_mixR_loglik_gamma_g_C", (DL_FUNC) &_mixR_loglik_gamma_g_C, 4},
+    {"_mixR_gamma_g_C", (DL_FUNC) &_mixR_gamma_g_C, 7},
+    {"_mixR_expZ_weib_C", (DL_FUNC) &_mixR_expZ_weib_C, 4},
+    {"_mixR_loglik_weib_C", (DL_FUNC) &_mixR_loglik_weib_C, 4},
+    {"_mixR_g_weib", (DL_FUNC) &_mixR_g_weib, 4},
+    {"_mixR_newton_weib_C", (DL_FUNC) &_mixR_newton_weib_C, 5},
+    {"_mixR_weib_bisection_C", (DL_FUNC) &_mixR_weib_bisection_C, 7},
+    {"_mixR_to_mu_sd_weib_C", (DL_FUNC) &_mixR_to_mu_sd_weib_C, 2},
+    {"_mixR_to_k_lambda_weib_C", (DL_FUNC) &_mixR_to_k_lambda_weib_C, 2},
+    {"_mixR_weib_C", (DL_FUNC) &_mixR_weib_C, 7},
+    {"_mixR_eweib_trunc", (DL_FUNC) &_mixR_eweib_trunc, 4},
+    {"_mixR_EXweib_C", (DL_FUNC) &_mixR_EXweib_C, 3},
+    {"_mixR_TXweib_C", (DL_FUNC) &_mixR_TXweib_C, 4},
+    {"_mixR_loglik_weib_g_C", (DL_FUNC) &_mixR_loglik_weib_g_C, 4},
+    {"_mixR_weib_g_C", (DL_FUNC) &_mixR_weib_g_C, 7},
+    {"_mixR_expZ_lnorm_C", (DL_FUNC) &_mixR_expZ_lnorm_C, 4},
+    {"_mixR_loglik_lnorm_C", (DL_FUNC) &_mixR_loglik_lnorm_C, 4},
+    {"_mixR_lnorm_C", (DL_FUNC) &_mixR_lnorm_C, 6},
+    {"_mixR_elnorm_trunc", (DL_FUNC) &_mixR_elnorm_trunc, 4},
+    {"_mixR_EXlnorm_C", (DL_FUNC) &_mixR_EXlnorm_C, 3},
+    {"_mixR_TXlnorm_C", (DL_FUNC) &_mixR_TXlnorm_C, 4},
+    {"_mixR_loglik_lnorm_g_C", (DL_FUNC) &_mixR_loglik_lnorm_g_C, 4},
+    {"_mixR_lnorm_g_C", (DL_FUNC) &_mixR_lnorm_g_C, 6},
+    {NULL, NULL, 0}
+};
+
+RcppExport void R_init_mixR(DllInfo *dll) {
+    R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
+    R_useDynamicSymbols(dll, FALSE);
 }

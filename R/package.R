@@ -64,7 +64,7 @@
 #'  \enumerate{
 #'  \item Fitting finite mixture models for both raw data and binned data by using
 #'  EM algorithm, together with Newton-Raphson algorithm and bisection method.
-#'  \item Do parametric bootstrapp likelihood ratio test for two candidate models.
+#'  \item Do parametric bootstrap likelihood ratio test for two candidate models.
 #'  \item Do model selection by Bayesian information criterion.
 #'  }
 #'
@@ -91,7 +91,7 @@
 #' Lo, Y., Mendell, N. R., and Rubin, D. B. Testing the number of components in a normal
 #' mixture. \emph{Biometrika}, 88(3):767-778, 2001.
 #'
-#' McLachlan, G. J. On bootstrapping the likelihood ratio test stastistic for the number
+#' McLachlan, G. J. On bootstrapping the likelihood ratio test statistic for the number
 #' of components in a normal mixture. \emph{Applied statistics}, pages 318-324, 1987.
 #'
 #' McLachlan, G. and Jones, P. Fitting mixture models to grouped and truncated data via

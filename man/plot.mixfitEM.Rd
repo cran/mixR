@@ -17,9 +17,9 @@ or \code{ggplot2}}
 (default \code{TRUE})}
 
 \item{smoothness}{a positive integer controlling the smoothness of the density curve in the plot.
-The default value is 512 and incrasing this value will produce smoother curve.}
+The default value is 512 and increasing this value will produce smoother curve.}
 
-\item{...}{the other parameters controlling the appearence of the plot, which are the following
+\item{...}{the other parameters controlling the appearance of the plot, which are the following
 parameters if we specify family as \code{base}:
 \describe{
 \item{xlim}{a numeric vector of length 2 specifying the range of x-axis of the plot}
@@ -47,8 +47,8 @@ The function \code{plot.mixfitEM} is used for plotting an object of class \code{
 an output of the function \code{\link{mixfit}}. Users can choose base R plotting system or ggplot2
 (the package ggplot2 needs to be installed).
 plotting system. The plot is a density plot of the fitted mixture model imposed on top of a histogram.
-The parameters that control the appearence of the histogram and the density curve can be changed.
-The density curve of each component can be shown or hiden.
+The parameters that control the appearance of the histogram and the density curve can be changed.
+The density curve of each component can be shown or hidden.
 }
 \examples{
 x <- rmixnormal(200, c(0.3, 0.7), c(2, 5), c(1, 0.7))

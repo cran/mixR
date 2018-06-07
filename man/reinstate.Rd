@@ -13,7 +13,7 @@ reinstate(data)
 The function returns a numeric vector.
 }
 \description{
-This function creates a numeric vector approxmimating the raw data from binned data
+This function creates a numeric vector approximating the raw data from binned data
 }
 \details{
 The function \code{reinstate} creates a numeric vector by generating \eqn{n_i}

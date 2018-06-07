@@ -7,8 +7,8 @@
 #' an output of the function \code{\link{mixfit}}. Users can choose base R plotting system or ggplot2
 #' (the package ggplot2 needs to be installed).
 #' plotting system. The plot is a density plot of the fitted mixture model imposed on top of a histogram.
-#' The parameters that control the appearence of the histogram and the density curve can be changed.
-#' The density curve of each component can be shown or hiden.
+#' The parameters that control the appearance of the histogram and the density curve can be changed.
+#' The density curve of each component can be shown or hidden.
 #'
 #' @param x an object of class \code{mixfitEM}, usually an output from the function \code{\link{mixfit}}
 #' @param ps a character string to select the plotting system, which can be \code{base} (default),
@@ -16,8 +16,8 @@
 #' @param detail a logical value controlling whether to show each component of the fitted mixture model
 #' (default \code{TRUE})
 #' @param smoothness a positive integer controlling the smoothness of the density curve in the plot.
-#' The default value is 512 and incrasing this value will produce smoother curve.
-#' @param ... the other parameters controlling the appearence of the plot, which are the following
+#' The default value is 512 and increasing this value will produce smoother curve.
+#' @param ... the other parameters controlling the appearance of the plot, which are the following
 #' parameters if we specify family as \code{base}:
 #' \describe{
 #' \item{xlim}{a numeric vector of length 2 specifying the range of x-axis of the plot}

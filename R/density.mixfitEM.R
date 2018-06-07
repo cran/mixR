@@ -1,6 +1,6 @@
 #' The Density of Finite Mixture Models
 #'
-#' This function calculates the probabilty density of a finite mixture model.
+#' This function calculates the probability density of a finite mixture model.
 #'
 #' The function \code{density.mixfitEM} is the method of the generic function
 #' \code{density} for the class \code{mixfitEM}.

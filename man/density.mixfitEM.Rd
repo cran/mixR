@@ -28,7 +28,7 @@ items.
 \item{y}{the density of the mixture model at the corresponding locations in \code{x}}
 }
 \description{
-This function calculates the probabilty density of a finite mixture model.
+This function calculates the probability density of a finite mixture model.
 }
 \details{
 The function \code{density.mixfitEM} is the method of the generic function

@@ -33,7 +33,7 @@ to_mu_sd_weibull <- function(k, lambda) {
 #' the Weibull distributions.
 #'
 #' The purpose of this function is to convert the parameterization of Weibull distribution in the form of
-#' mean and standard deviation to the form of shape and scale. It can be used for specifying the inital
+#' mean and standard deviation to the form of shape and scale. It can be used for specifying the initial
 #' values for the EM algorithm when the first-hand intial values are in the form of mean and standard
 #' deviation from K-means clustering algorithm.
 #'

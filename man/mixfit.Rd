@@ -17,11 +17,11 @@ mixfit(x, ncomp = NULL, family = c("normal", "weibull", "gamma", "lnorm"),
 \item{family}{a character string specifying the family of the mixture model. It can only be
 one element from \code{normal}, \code{weibull}, \code{gamma} or \code{lnorm}.}
 
-\item{pi}{a vector of the inital value for the proportion}
+\item{pi}{a vector of the initial value for the proportion}
 
-\item{mu}{a vector of the inital value for the mean}
+\item{mu}{a vector of the initial value for the mean}
 
-\item{sd}{a vector of the inital value for the standard deviation}
+\item{sd}{a vector of the initial value for the standard deviation}
 
 \item{ev}{a logical value controlling whether each component has the same variance when
 fitting normal mixture models. It is ignored when fitting other mixture models. The default is \code{FALSE}.}
@@ -76,12 +76,12 @@ or \code{gamma}, the M-step of the EM algorithm has no closed-form solution and 
 use Newton algorithm by specifying \code{method = "newton"} or use bisection method by
 specifying \code{method = "bisection"}.
 
-The inital values of the EM algorithm can be provided by specifying the proportion of each
+The initial values of the EM algorithm can be provided by specifying the proportion of each
 component \code{pi}, the mean of each component \code{mu} and the standard deviation of
 each component \code{sd}. If one or more of these initial values are not provided, then
 their values are estimated by using K-means clustering method or hierarchical clustering
 method. If all of \code{pi}, \code{mu}, and \code{sd}
-are not provided, then \code{ncomp} should be provided so inital values are automatically
+are not provided, then \code{ncomp} should be provided so initial values are automatically
 generated. For the normal mixture models, we can
 control whether each component has the same variance or not.
 }

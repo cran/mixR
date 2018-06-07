@@ -29,12 +29,12 @@
 #' use Newton algorithm by specifying \code{method = "newton"} or use bisection method by
 #' specifying \code{method = "bisection"}.
 #'
-#' The inital values of the EM algorithm can be provided by specifying the proportion of each
+#' The initial values of the EM algorithm can be provided by specifying the proportion of each
 #' component \code{pi}, the mean of each component \code{mu} and the standard deviation of
 #' each component \code{sd}. If one or more of these initial values are not provided, then
 #' their values are estimated by using K-means clustering method or hierarchical clustering
 #' method. If all of \code{pi}, \code{mu}, and \code{sd}
-#' are not provided, then \code{ncomp} should be provided so inital values are automatically
+#' are not provided, then \code{ncomp} should be provided so initial values are automatically
 #' generated. For the normal mixture models, we can
 #' control whether each component has the same variance or not.
 #'
@@ -42,9 +42,9 @@
 #' @param ncomp a positive integer specifying the number of components of the mixture model
 #' @param family a character string specifying the family of the mixture model. It can only be
 #' one element from \code{normal}, \code{weibull}, \code{gamma} or \code{lnorm}.
-#' @param pi a vector of the inital value for the proportion
-#' @param mu a vector of the inital value for the mean
-#' @param sd a vector of the inital value for the standard deviation
+#' @param pi a vector of the initial value for the proportion
+#' @param mu a vector of the initial value for the mean
+#' @param sd a vector of the initial value for the standard deviation
 #' @param ev a logical value controlling whether each component has the same variance when
 #' fitting normal mixture models. It is ignored when fitting other mixture models. The default is \code{FALSE}.
 #' @param mstep.method a character string specifying the method used in M-step of the EM algorithm

@@ -119,7 +119,7 @@ List norm_uv(NumericVector x, NumericVector pi, NumericVector mu, NumericVector 
     	sd_new = sqrt(var_new);
 
     	double diff = loglik_norm_C(x, pi_new, mu_new, sd_new) - loglik_norm_C(x, pi, mu, sd);
-    	if(abs(diff) < tol | iter > max_iter) break;
+    	if((abs(diff) < tol) | (iter > max_iter)) break;
     	//pi = clone(pi_new);
     	//mu = clone(mu_new);
     	//sd = clone(sd_new);
@@ -164,7 +164,7 @@ List norm_ev(NumericVector x, NumericVector pi, NumericVector mu, NumericVector 
     	}
 
     	double diff = loglik_norm_C(x, pi_new, mu_new, sd_new) - loglik_norm_C(x, pi, mu, sd);
-    	if(abs(diff) < tol | iter > max_iter) break;
+    	if((abs(diff) < tol) | (iter > max_iter)) break;
         //pi = clone(pi_new);
         //mu = clone(mu_new);
         //sd = clone(sd_new);
@@ -396,7 +396,7 @@ List norm_uv_g(NumericMatrix data, NumericVector pi, NumericVector mu, NumericVe
         sd_new = sqrt(var_new);
 
         double diff = loglik_norm_gC(data, pi_new, mu_new, sd_new) - loglik_norm_gC(data, pi, mu, sd);
-        if(abs(diff) < tol | iter > max_iter) break;
+        if((abs(diff) < tol) | (iter > max_iter)) break;
         //pi = clone(pi_new); // use 'clone' is important
         //mu = clone(mu_new);
         //sd = clone(sd_new);
@@ -441,7 +441,7 @@ List norm_ev_g(NumericMatrix data, NumericVector pi, NumericVector mu, NumericVe
         sd_new = sqrt(var_new);
 
         double diff = loglik_norm_gC(data, pi_new, mu_new, sd_new) - loglik_norm_gC(data, pi, mu, sd);
-        if(abs(diff) < tol | iter > max_iter) break;
+        if((abs(diff) < tol) | (iter > max_iter)) break;
         // pi = clone(pi_new); // use 'clone' is important
         // mu = clone(mu_new);
         // sd = clone(sd_new);
@@ -478,13 +478,13 @@ NumericMatrix expZ_gamma_C(NumericVector x, NumericVector pi, NumericVector alph
     int n = x.size();
     pi = pi / sum(pi);
     int ncomp = pi.size();
-    
+
     NumericMatrix res(n, ncomp);
-    
+
     for(int j = 0; j < ncomp; j++) {
         res(_, j) = pi(j) * dgamma(x, alpha(j), 1 / lambda(j));
     }
-    
+
     for(int i = 0; i < n; i++) {
         res(i, _) = res(i, _) / sum(res(i, _));
     }
@@ -497,10 +497,10 @@ double loglik_gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, Nu
     int n = x.size();
     int ncomp = pi.size();
     NumericMatrix res(n, ncomp);
-    
+
     for(int j = 0; j < ncomp; j++) {
         res(_, j) = pi(j) * dgamma(x, alpha(j), 1 / lambda(j));
-        
+
         // the second par of dgamma in Rcpp us scale !
     }
     return sum(log(rcsum(res, 1)));
@@ -527,14 +527,14 @@ NumericVector newton_gamma_C(NumericVector n, NumericVector ex, NumericVector tx
     int iter = 1;
     double alpha_new, lambda;
     double delta = mean(n * tx * ex) / mean(n * tx);
-    
+
     while(iter < max_iter) {
         alpha_new = alpha - g_gamma(alpha, n, ex, tx, delta) / g_gamma_diff(alpha, n, ex, tx, delta);
         if(abs(alpha_new - alpha) < 1e-4) break;
         alpha = alpha_new;
     }
     lambda = alpha_new / delta;
-    
+
     NumericVector res(2);
     res(0) = alpha_new;
     res(1) = lambda;
@@ -547,20 +547,20 @@ NumericVector gamma_bisection_C(NumericVector n, NumericVector ex, NumericVector
                                 int max_iter = 100, double xleft = 0.1, double xright = 5) {
     int iter = 1;
     double delta = mean(n * tx * ex) / mean(n * tx);
-    
+
     while(g_gamma(xleft, n, ex, tx, delta) * g_gamma(xright, n, ex, tx, delta) > 0) {
         xright = xright * 2;
         xleft = xleft / 2;
     }
-    
+
     double temp, ftemp, fright, alpha, lambda;
     double xfinal = (xleft + xright) / 2;
-    
+
     while(iter < max_iter) {
         temp = (xleft + xright) / 2;
         ftemp = g_gamma(temp, n, ex, tx, delta);
         fright = g_gamma(xright, n, ex, tx, delta);
-        
+
         if(abs(ftemp) < tol) {
             xfinal = temp;
             break;
@@ -573,7 +573,7 @@ NumericVector gamma_bisection_C(NumericVector n, NumericVector ex, NumericVector
         }
         iter += 1;
     }
-    
+
     alpha = xfinal;
     lambda = alpha / delta;
     NumericVector res(2);
@@ -620,10 +620,10 @@ List gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, NumericVect
     for(int j = 0; j < n; j++) {
         nx(j) = 1.0;
     }
-    
+
     while(iter < max_iter) {
         Z = expZ_gamma_C(x, pi, alpha, lambda);
-        
+
         pi_new = rcmean(Z, 2);
         for(int j = 0; j < ncomp; j++) {
             if(method == "Newton") {
@@ -634,7 +634,7 @@ List gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, NumericVect
         }
         alpha_new = par(_, 0);
         lambda_new = par(_, 1);
-        
+
         double diff = loglik_gamma_C(x, pi_new, alpha_new, lambda_new) - loglik_gamma_C(x, pi, alpha, lambda);
         // cout << loglik_gamma_C(x, pi_new, alpha_new, lambda_new) << " " << iter << endl;
         if(abs(diff) < tol) break;
@@ -645,7 +645,7 @@ List gamma_C(NumericVector x, NumericVector pi, NumericVector alpha, NumericVect
         }
         iter = iter + 1;
     }
-    
+
     List pars = to_mu_sd_gamma_C(alpha_new, lambda_new);
     NumericVector mu = pars(0);
     NumericVector sd = pars(1);
@@ -744,12 +744,12 @@ List gamma_g_C(NumericMatrix data, NumericVector pi, NumericVector alpha, Numeri
     NumericMatrix ex(n, ncomp), tx(n, ncomp), par(ncomp, 2);
     int iter = 1;
     List res(8);
-    
+
     while(iter < max_iter) {
         // e-step
         ex = EXgamma_C(data, alpha, lambda);
         tx = TXgamma_C(pi, alpha, lambda, ex);
-        
+
         // m-step
         for(int j = 0; j < ncomp; j++) {
             pi_new(j) = sum(tx(_, j) * count) / sum(rcsum(tx, 1) * count);
@@ -762,7 +762,7 @@ List gamma_g_C(NumericMatrix data, NumericVector pi, NumericVector alpha, Numeri
         alpha_new = par(_, 0);
         lambda_new = par(_, 1);
         double diff = loglik_gamma_g_C(data, pi_new, alpha_new, lambda_new) - loglik_gamma_g_C(data, pi, alpha, lambda);
-        
+
         if(abs(diff) < tol) break;
         for(int j = 0; j < ncomp; j++) {
             pi(j) = pi_new(j);
@@ -803,13 +803,13 @@ NumericMatrix expZ_weib_C(NumericVector x, NumericVector pi, NumericVector k, Nu
     int n = x.size();
     pi = pi / sum(pi);
     int ncomp = pi.size();
-    
+
     NumericMatrix res(n, ncomp);
-    
+
     for(int j = 0; j < ncomp; j++) {
         res(_, j) = pi(j) * dweibull(x,k(j), lambda(j));
     }
-    
+
     for(int i = 0; i < n; i++) {
         res(i, _) = res(i, _) / sum(res(i, _));
     }
@@ -823,7 +823,7 @@ double loglik_weib_C(NumericVector x, NumericVector pi, NumericVector k, Numeric
     int n = x.size();
     int ncomp = pi.size();
     NumericMatrix res(n, ncomp);
-    
+
     for(int j = 0; j < ncomp; j++) {
         res(_, j) = pi(j) * dweibull(x, k(j), lambda(j));
     }
@@ -858,7 +858,7 @@ double g_weib_diff(double r, NumericVector n, NumericVector ex, NumericVector tx
 NumericVector newton_weib_C(NumericVector n, NumericVector ex, NumericVector tx, double r = 1, int max_iter = 100) {
     int iter = 1;
     double theta, lambda, k, r_new;
-    
+
     while(iter < max_iter) {
         r_new = r - g_weib(r, n, ex, tx) / g_weib_diff(r, n, ex, tx);
         if(abs(r_new - r) < 1e-4) break;
@@ -866,8 +866,8 @@ NumericVector newton_weib_C(NumericVector n, NumericVector ex, NumericVector tx,
     }
     theta = sum(n * tx * pow(ex, r_new)) / sum(n * tx);
     k = r_new;
-    lambda = pow(theta, 1 / k);
-    
+    lambda = pow(theta, 1.0 / k);
+
     NumericVector res(2);
     res(0) = k;
     res(1) = lambda;
@@ -879,20 +879,20 @@ NumericVector newton_weib_C(NumericVector n, NumericVector ex, NumericVector tx,
 NumericVector weib_bisection_C(NumericVector n, NumericVector ex, NumericVector tx, double tol = 1e-4,
                                int max_iter = 100, double xleft = 0.1, double xright = 5) {
     int iter = 1;
-    
+
     while(g_weib(xleft, n, ex, tx) * g_weib(xright, n, ex, tx) > 0) {
         xright = xright * 2;
         xleft = xleft / 2;
     }
-    
+
     double temp, ftemp, fright, k, theta, lambda;
     double xfinal = (xleft + xright) / 2;
-    
+
     while(iter < max_iter) {
         temp = (xleft + xright) / 2;
         ftemp = g_weib(temp, n, ex, tx);
         fright = g_weib(xright, n, ex, tx);
-        
+
         if(abs(ftemp) < tol) {
             xfinal = temp;
             break;
@@ -905,11 +905,11 @@ NumericVector weib_bisection_C(NumericVector n, NumericVector ex, NumericVector 
         }
         iter += 1;
     }
-    
+
     theta = sum(n * tx * pow(ex, xfinal)) / sum(n * tx);
     k = xfinal;
     lambda = pow(theta, 1 / k);
-    
+
     NumericVector res(2);
     res(0) = k;
     res(1) = lambda;
@@ -961,10 +961,10 @@ List weib_C(NumericVector x, NumericVector pi, NumericVector k, NumericVector la
     for(int j = 0; j < n; j++) {
         nx(j) = 1.0;
     }
-    
+
     while(iter < max_iter) {
         Z = expZ_weib_C(x, pi, k, lambda);
-        
+
         pi_new = rcmean(Z, 2);
         for(int j = 0; j < ncomp; j++) {
             if(method == "Newton") {
@@ -975,7 +975,7 @@ List weib_C(NumericVector x, NumericVector pi, NumericVector k, NumericVector la
             k_new(j) = mod(0);
             lambda_new(j) = mod(1);
         }
-        
+
         double diff = loglik_weib_C(x, pi_new, k_new, lambda_new) - loglik_weib_C(x, pi, k, lambda);
         // cout << loglik_weib_C(x, pi_new, k_new, lambda_new) << " " << iter << endl;
         // cout << k_new(0) << " "<< k_new(1)  << " "<< lambda_new(0) << " " << lambda_new(1) << endl;
@@ -987,7 +987,7 @@ List weib_C(NumericVector x, NumericVector pi, NumericVector k, NumericVector la
         }
         iter = iter + 1;
     }
-    
+
     List pars = to_mu_sd_weib_C(k_new, lambda_new);
     NumericVector mu = pars(0);
     NumericVector sd = pars(1);
@@ -1085,12 +1085,12 @@ List weib_g_C(NumericMatrix data, NumericVector pi, NumericVector k, NumericVect
     NumericMatrix ex(n, ncomp), tx(n, ncomp), par(ncomp, 2);
     int iter = 1;
     List res(8);
-    
+
     while(iter < max_iter) {
         // e-step
         ex = EXweib_C(data, k, lambda);
         tx = TXweib_C(pi, k, lambda, ex);
-        
+
         // m-step
         for(int j = 0; j < ncomp; j++) {
             pi_new(j) = sum(tx(_, j) * count) / sum(rcsum(tx, 1) * count);
@@ -1103,7 +1103,7 @@ List weib_g_C(NumericMatrix data, NumericVector pi, NumericVector k, NumericVect
         k_new = par(_, 0);
         lambda_new = par(_, 1);
         double diff = loglik_weib_g_C(data, pi_new, k_new, lambda_new) - loglik_weib_g_C(data, pi, k, lambda);
-        
+
         if(abs(diff) < tol) break;
         for(int j = 0; j < ncomp; j++) {
             pi(j) = pi_new(j);
@@ -1141,13 +1141,13 @@ NumericMatrix expZ_lnorm_C(NumericVector x, NumericVector pi, NumericVector mulo
     int n = x.size();
     pi = pi / sum(pi);
     int ncomp = pi.size();
-    
+
     NumericMatrix res(n, ncomp);
-    
+
     for(int j = 0; j < ncomp; j++) {
         res(_, j) = pi(j) * dlnorm(x, mulog(j), sdlog(j));
     }
-    
+
     for(int i = 0; i < n; i++) {
         res(i, _) = res(i, _) / sum(res(i, _));
     }
@@ -1160,7 +1160,7 @@ double loglik_lnorm_C(NumericVector x, NumericVector pi, NumericVector mulog, Nu
     int n = x.size();
     int ncomp = pi.size();
     NumericMatrix res(n, ncomp);
-    
+
     for(int j = 0; j < ncomp; j++) {
         res(_, j) = pi(j) * dlnorm(x, mulog(j), sdlog(j));
     }
@@ -1199,17 +1199,17 @@ List lnorm_C(NumericVector x, NumericVector pi, NumericVector mulog, NumericVect
     NumericMatrix Z(n, ncomp);
     int iter = 1;
     List res(8);
-    
+
     while(iter < max_iter) {
         Z = expZ_lnorm_C(x, pi, mulog, sdlog);
-        
+
         pi_new = rcmean(Z, 2);
         for(int j = 0; j < ncomp; j++) {
             mulog_new(j) = sum(Z(_, j) * log(x)) / sum(Z(_, j));
             varlog_new(j) = sum(Z(_, j) * pow(log(x) - mulog_new(j), 2)) / sum(Z(_, j));
         }
         sdlog_new = sqrt(varlog_new);
-        
+
         double diff = loglik_lnorm_C(x, pi_new, mulog_new, sdlog_new) - loglik_lnorm_C(x, pi, mulog, sdlog);
         if(abs(diff) < tol) break;
         for(int j = 0; j < ncomp; j++) {
@@ -1310,7 +1310,7 @@ double loglik_lnorm_g_C(NumericMatrix data, NumericVector pi, NumericVector mulo
 // 7. Em algorithm for LOG-normal mixtures (grouped data)
 // [[Rcpp::export]]
 List lnorm_g_C(NumericMatrix data, NumericVector pi, NumericVector mulog, NumericVector sdlog, int max_iter = 500, double tol = 1e-6) {
-    
+
     NumericVector count = data(_, 2);
     int n = data.nrow();
     int ncomp = mulog.size();
@@ -1318,18 +1318,18 @@ List lnorm_g_C(NumericMatrix data, NumericVector pi, NumericVector mulog, Numeri
     NumericMatrix ex(n, ncomp), tx(n, ncomp),  par(ncomp, 2);
     int iter = 1;
     List res(8);
-    
+
     while(iter < max_iter) {
         ex = EXlnorm_C(data, mulog, sdlog);
         tx = TXlnorm_C(pi, mulog, sdlog, ex);
-        
+
         for(int j = 0; j < ncomp; j++) {
             pi_new(j) = sum(tx(_, j) * count) / sum(rcsum(tx, 1) * count);
             mulog_new(j) = sum(count * tx(_, j) * log(ex(_, j))) / sum(count * tx(_, j));
             varlog_new(j) = sum(count * tx(_, j) * pow(log(ex(_, j)) - mulog_new(j), 2)) / sum(count * tx(_, j));
         }
         sdlog_new = sqrt(varlog_new);
-        
+
         double diff = loglik_lnorm_g_C(data, pi_new, mulog_new, sdlog_new) - loglik_lnorm_g_C(data, pi, mulog, sdlog);
         if(abs(diff) < tol) break;
         for(int j = 0; j < ncomp; j++) {
