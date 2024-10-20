@@ -12,4 +12,4 @@ install.packages('mixR')
 
 Examples
 --------
-Please check the vignette.
+Please check this [paper](https://joss.theoj.org/papers/10.21105/joss.04031)

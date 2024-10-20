@@ -1,3 +1,9 @@
+## 0.2.1
+- fixed an error and a note in CRAN package check results
+- removed the vignette in the previous version as examples can be found in
+paper https://joss.theoj.org/papers/10.21105/joss.04031
+- removed a test file which caused an error when running R check
+
 
 ## 0.2.0
 
@@ -10,8 +16,7 @@
 
 ## 0.1.1
 
-- Resolved the warnings issues found in [check results](https://www.r-project.org/nosvn/R.check/r-release-windows-ix86+x86_64/mixR-00check.html).
-
+- Resolved the warnings issues found in CRAN package check results
 
 ## 0.1.0
 
